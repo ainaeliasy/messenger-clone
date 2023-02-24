@@ -238,7 +238,7 @@ class CometChatConversationList extends React.Component {
 
 	componentWillUnmount() {
 		this._isMounted = false;
-		this.ConversationListManager.removeListeners();
+		this.ConversationListManager && this.ConversationListManager.removeListeners();
 		this.ConversationListManager = null;
 	}
 
@@ -1024,7 +1024,7 @@ class CometChatConversationList extends React.Component {
 			(conversation, key) => {
 				return (
 					<CometChatConversationListItem
-						key={conversation.conversationId}
+						key={conversation.conversationId+key}
 						conversation={conversation}
 						loggedInUser={this.loggedInUser}
 						handleClick={this.handleClick}

@@ -468,16 +468,16 @@ class CometChatGroupList extends React.PureComponent {
 			);
 		}
 
-		const groups = this.state.grouplist.map((group) => {
+		const groups = this.state.grouplist.map((group,index) => {
 			let selectedGroup =
 				this.getContext().type === CometChat.ACTION_TYPE.TYPE_GROUP &&
 				this.getContext().item.guid === group.guid
 					? group
 					: null;
-
+console.log(group)
 			return (
 				<CometChatGroupListItem
-					key={group.guid}
+					key={group}
 					group={group}
 					selectedGroup={selectedGroup}
 					clickHandler={this.handleClick}

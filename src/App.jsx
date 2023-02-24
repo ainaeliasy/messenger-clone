@@ -27,11 +27,22 @@ const authKey = import.meta.env.VITE_REACT_APP_COMETCHAT_AUTH_KEY
 //         console.log("error", error);
 //     }
 // )
+const uid = "user2";
+
+CometChat.login(uid, authKey).then(
+  user => {
+    console.log("Login Successful:", { user });    
+  },
+  error => {
+    console.log("Login failed with exception:", { error });    
+  }
+);
+
 function App() {
 
   return (
     <div className="App">
-     <div style={{width: '800px', height:'800px' }}>
+     <div style={{width: '100%', height:'100vh' }}>
       	<CometChatUI />
       </div>
     </div>

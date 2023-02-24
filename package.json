@@ -9,8 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@cometchat-pro/chat": "^3.0.11",
+    "@emotion/react": "^11.10.6",
+    "@twemoji/api": "^14.1.0",
+    "dateformat": "^5.0.3",
+    "dotenv": "^16.0.3",
+    "html-react-parser": "^3.0.9",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",

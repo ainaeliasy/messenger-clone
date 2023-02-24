@@ -1,32 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { CometChat } from "@cometchat-pro/chat";
+import { CometChatUI } from "./CometChatWorkspace/src";
+const appID = import.meta.env.VITE_REACT_APP_COMETCHAT_APP_ID
+const region =import.meta.env.VITE_REACT_APP_COMETCHAT_REGION
+const appSetting = new CometChat.AppSettingsBuilder().subscribePresenceForAllUsers().setRegion(region).build();
+CometChat.init(appID, appSetting).then(
+  () => {
+    console.log("Initialization completed successfully");
+    // You can now call login function.
+  },
+  error => {
+    console.log("Initialization failed with error:", error);
+    // Check the reason for error and take appropriate action.
+  }
+);
 
+const authKey = import.meta.env.VITE_REACT_APP_COMETCHAT_AUTH_KEY
+// var uid = "user2";
+// var name = "Eliasy";
+
+// var user = new CometChat.User(uid);
+// user.setName(name);
+// CometChat.createUser(user, authKey).then(
+//     user => {
+//         console.log("user created", user);
+//     },error => {
+//         console.log("error", error);
+//     }
+// )
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+     <div style={{width: '800px', height:'800px' }}>
+      	<CometChatUI />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   )
 }
